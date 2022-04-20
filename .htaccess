@@ -1,0 +1,35 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php
+#RewriteRule ^([a-z]+)/?$ $1.php [NC]
+
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html
+#RewriteRule ^([a-z]+)/?$ $1.html [NC]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.js -f
+RewriteRule ^(.*)$ $1.js
+#RewriteRule ^([a-z]+)/?$ $1.js [NC]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.css -f
+RewriteRule ^(.*)$ $1.css
+#RewriteRule ^([a-z]+)/?$ $1.css [NC]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.jpg -f
+RewriteRule ^(.*)$ $1.jpg
+#RewriteRule ^([a-z]+)/?$ $1.jpg [NC]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.jpeg -f
+RewriteRule ^(.*)$ $1.jpeg
+#RewriteRule ^([a-z]+)/?$ $1.jpeg [NC]
+
+</IfModule>
