@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 19-04-2022 a las 19:26:10
+-- Tiempo de generación: 12-05-2022 a las 13:39:28
 -- Versión del servidor: 10.3.34-MariaDB-0ubuntu0.20.04.1
--- Versión de PHP: 7.4.28
+-- Versión de PHP: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,54 +24,51 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `venta`
+-- Estructura de tabla para la tabla `usuario`
 --
 
-CREATE TABLE `venta` (
-  `idventa` int(11) NOT NULL,
-  `idcliente` int(11) NOT NULL,
+CREATE TABLE `usuario` (
   `idusuario` int(11) NOT NULL,
-  `tipo_comprobante` varchar(20) NOT NULL,
-  `serie_comprobante` varchar(7) DEFAULT NULL,
-  `num_comprobante` varchar(10) NOT NULL,
-  `fecha_hora` datetime NOT NULL,
-  `impuesto` decimal(4,2) DEFAULT NULL,
-  `total_venta` decimal(11,2) DEFAULT NULL,
-  `estado` varchar(20) DEFAULT NULL
+  `nombre` varchar(100) NOT NULL,
+  `tipo_documento` varchar(20) NOT NULL,
+  `num_documento` varchar(20) NOT NULL,
+  `direccion` varchar(70) DEFAULT NULL,
+  `telefono` varchar(20) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `cargo` varchar(20) DEFAULT NULL,
+  `login` varchar(20) NOT NULL,
+  `clave` varchar(64) NOT NULL,
+  `imagen` varchar(50) NOT NULL,
+  `condicion` tinyint(4) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`idusuario`, `nombre`, `tipo_documento`, `num_documento`, `direccion`, `telefono`, `email`, `cargo`, `login`, `clave`, `imagen`, `condicion`) VALUES
+(1, 'Admin Dev', 'DUI', '00000000-0', 'San miguel', '200000000', 'admin@admin.com', 'Administrador', 'admin', 'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', '1652384201.jpg', 1);
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `venta`
+-- Indices de la tabla `usuario`
 --
-ALTER TABLE `venta`
-  ADD PRIMARY KEY (`idventa`),
-  ADD KEY `fk_venta_persona_idx` (`idcliente`),
-  ADD KEY `fk_venta_usuario_idx` (`idusuario`);
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`idusuario`),
+  ADD UNIQUE KEY `login_UNIQUE` (`login`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT de la tabla `venta`
+-- AUTO_INCREMENT de la tabla `usuario`
 --
-ALTER TABLE `venta`
-  MODIFY `idventa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `venta`
---
-ALTER TABLE `venta`
-  ADD CONSTRAINT `fk_venta_persona` FOREIGN KEY (`idcliente`) REFERENCES `persona` (`idpersona`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_venta_usuario` FOREIGN KEY (`idusuario`) REFERENCES `usuario` (`idusuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `usuario`
+  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

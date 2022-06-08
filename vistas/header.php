@@ -3,7 +3,7 @@
   if (strlen(session_id()) < 1)
     session_start();
 
-	$pathName = explode("/",$_SERVER["REQUEST_URI"])[PATH_INDEX];
+  $pathName = explode("/", $_SERVER["REQUEST_URI"])[PATH_INDEX];
   ?>
  <!DOCTYPE html>
  <html>
@@ -11,7 +11,7 @@
  <head>
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <title><?php echo ucfirst(strtolower(str_replace("%20"," ",$pathName))); ?> | <?php echo PRO_NOMBRE ?></title>
+   <title><?php echo ucfirst(strtolower(str_replace("%20", " ", $pathName))); ?> | <?php echo PRO_NOMBRE ?></title>
    <!-- Tell the browser to be responsive to screen width -->
    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
    <!-- Bootstrap 3.3.7 -->
@@ -108,7 +108,7 @@
             if ($_SESSION['almacen'] == 1) {
               echo ' <li class="treeview">
           <a href="#">
-            <i class="fa fa-laptop"></i> <span>Almacen</span>
+            <i class="fa fa-laptop"></i> <span>Inventario</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -138,6 +138,23 @@
             ?>
 
            <?php
+            if ($_SESSION['ventas'] == 1) {
+              echo '<li class="treeview">
+          <a href="#">
+            <i class="fa fa-shopping-cart"></i> <span>Ventas</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="venta"><i class="fa fa-circle-o"></i> Ventas</a></li>
+            <li><a href="cliente"><i class="fa fa-circle-o"></i> Clientes</a></li>
+          </ul>
+        </li>';
+            }
+            ?>
+
+           <?php
             if ($_SESSION['acceso'] == 1) {
               echo '  <li class="treeview">
           <a href="#">
@@ -149,6 +166,55 @@
           <ul class="treeview-menu">
             <li><a href="usuario"><i class="fa fa-circle-o"></i> Usuarios</a></li>
             <li><a href="permiso"><i class="fa fa-circle-o"></i> Permisos</a></li>
+          </ul>
+        </li>';
+            }
+            ?>
+           <?php
+            if ($_SESSION['consultac'] == 1) {
+              echo '     <li class="treeview">
+          <a href="#">
+            <i class="fa fa-bar-chart"></i> <span>Consulta Compras</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="Compras por fechas"><i class="fa fa-circle-o"></i>Compras por fechas</a></li>
+          </ul>
+        </li>';
+            }
+            ?>
+
+           <?php
+            if ($_SESSION['consultav'] == 1) {
+              echo '<li class="treeview">
+          <a href="#">
+            <i class="fa fa-bar-chart"></i> <span>Consulta Ventas</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="Consulta Ventas"><i class="fa fa-circle-o"></i>Consulta Ventas</a></li>
+
+          </ul>
+        </li>';
+            }
+            ?>
+
+           <?php
+            if ($_SESSION['consultav'] == 1) {
+              echo '<li class="treeview">
+          <a href="#">
+            <i class="fa fa-file"></i> <span>Reportes</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+          <li><a href="reporte compras"><i class="fa fa-circle-o"></i>Reporte de compras</a></li>
+          <li><a href="reporte ventas"><i class="fa fa-circle-o"></i>Reporte de ventas</a></li>
           </ul>
         </li>';
             }
