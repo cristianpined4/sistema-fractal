@@ -3,6 +3,8 @@ var tabla;
 //funcion que se ejecuta al inicio
 function init() {
   listar();
+	$("#fecha_inicio").change(listar);
+  	$("#fecha_fin").change(listar);
 }
 
 //funcion listar

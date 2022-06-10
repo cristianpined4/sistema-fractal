@@ -30,11 +30,11 @@ $rspta = $venta->ventacabecera($_GET["id"]);
 $reg=$rspta->fetch_object();
 
 //establecemos los datos de la empresa
-$empresa = "Tecnology S.A. de C.V.";
-$documento = "102-1120-231121-101";
-$direccion = "calle los angeles";
-$telefono = "2665-3342";
-$email = "info@example.com";
+$empresa="Ferreteria Cruz S.A de C.V.";
+$documento="0120-220407-102-4";
+$direccion="Calle principal, Mercedes Umaña, Tres cuadras antes del parque.";
+$telefono="2664-4344";
+$email="info@ferreteriacruz.com";
 	 ?>
 <div class="zona_impresion">
 	<!--codigo imprimir-->

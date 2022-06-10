@@ -16,11 +16,11 @@ require('Factura.php');
 //establecemos los datos de la empresa
 $logo="logo.png";
 $ext_logo="png";
-$empresa="Tecnology Center S.A de C.V.";
-$documento="107-4528-120212-547";
-$direccion="Calle los angeles";
+$empresa="Ferreteria Cruz S.A de C.V.";
+$documento="0120-220407-102-4";
+$direccion=" Calle principal, Mercedes Umaña,\n                  Tres cuadras antes del parque.";
 $telefono="2664-4344";
-$email="info@example.com";
+$email="info@ferreteriacruz.com";
 
 //obtenemos los datos de la cabecera de la venta actual
 require_once "../modelos/Venta.php";

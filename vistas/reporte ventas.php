@@ -37,11 +37,6 @@ if (!isset($_SESSION['nombre'])) {
                   <label>Fecha Fin</label>
                   <input type="date" class="form-control" name="fecha_fin" id="fecha_fin" value="<?php echo date("Y-m-d"); ?>">
                 </div>
-                <div class="form-inline col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                  <br>
-                  <button class="btn btn-success" onclick="listar()">
-                    Mostrar</button>
-                </div>
                 <table id="tbllistado" class="table table-striped table-bordered table-condensed table-hover">
                   <thead>
                     <th>Fecha</th>
